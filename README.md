@@ -16,8 +16,8 @@
 1、**Deploy**：用于部署NextInscription协议代币  
 2、**Mint**：用于铸造NextInscription协议代币  
 3、**transfer**：用于转移NextInscription协议代币  
-3、**contractTransfer**：用于NextInscription协议合约内部代币转出      
-
+4、**contractTransfer**：用于NextInscription协议合约内部代币转出  
+4、**proxyDeposit**：用于NextInscription协议合约内部余额转质押  
 ### Deploy
 ```cpp
 data:,{"a":"NextInscription","p":"oprc-20","op":"deploy","tick":"NI","max":"210000000000","lim":"10000"}
@@ -62,5 +62,15 @@ event contractTransfer(
     address indexed receive,
     uint256 indexed amount 
 );
-//合约内部代币转移，用于市场合约desipot余额的转出。
+//合约内部代币转移，用于合约转账。
+```
+### proxyDeposit
+```cpp
+event contractTransfer(
+    bytes32 indexed collectionId,
+    address indexed from,
+    address indexed to,
+    uint256 amount 
+);
+//合约内部代币转质押。
 ```
