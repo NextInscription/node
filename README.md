@@ -59,7 +59,6 @@ data:,{"a":"NextInscription","p":"oprc-20","op":"transfer","tick":"NI","amt":"10
 ```cpp
 event deposit(
     bytes32 indexed collectionId,
-    address indexed from,
     uint256 indexed amount 
 );
 //用于质押铭文代币给合约。
