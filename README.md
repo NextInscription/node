@@ -9,15 +9,16 @@
 4、**节点共识**：在市场稳定之后，我们会采取共识节点的方式来验证所有节点的数据安全，以及数据准确性。 
 
 ### 约定
-1、mint代币只能from=to
-2、不支持合约批量铸造
-3、将不再记录mint hash
+1、mint代币只能from=to  
+2、不支持合约批量铸造  
+3、将不再记录mint hash  
 ### 规范
 1、**Deploy**：用于部署NextInscription协议代币  
 2、**Mint**：用于铸造NextInscription协议代币  
 3、**transfer**：用于转移NextInscription协议代币  
-4、**contractTransfer**：用于NextInscription协议合约内部代币转出  
-4、**proxyDeposit**：用于NextInscription协议合约内部余额转质押  
+4、**deposit**：用于NextInscription质押触发的event  
+4、**contractTransfer**：用于NextInscription协议合约内部代币转出触发的event   
+5、**proxyDeposit**：用于NextInscription协议合约内部余额转质押触发的event    
 ### Deploy
 ```cpp
 data:,{"a":"NextInscription","p":"oprc-20","op":"deploy","tick":"NI","max":"210000000000","lim":"10000"}
@@ -54,7 +55,15 @@ data:,{"a":"NextInscription","p":"oprc-20","op":"transfer","tick":"NI","amt":"10
 | op | yes | 操作类型transfer  |
 | tick | yes | 代币名称      |
 | amt  | yes | transfer数量  |
-
+### deposit
+```cpp
+event deposit(
+    bytes32 indexed collectionId,
+    address indexed from,
+    uint256 indexed amount 
+);
+//用于质押铭文代币给合约。
+```
 ### contractTransfer
 ```cpp
 event contractTransfer(
