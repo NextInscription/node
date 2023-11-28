@@ -13,12 +13,13 @@
 2、不支持合约批量铸造  
 3、将不再记录mint hash  
 ### 规范
-1、**Deploy**：用于部署NextInscription协议代币  
-2、**Mint**：用于铸造NextInscription协议代币  
+1、**deploy**：用于部署NextInscription协议代币  
+2、**mint**：用于铸造NextInscription协议代币  
 3、**transfer**：用于转移NextInscription协议代币  
-4、**deposit**：用于NextInscription质押触发的event  
-4、**contractTransfer**：用于NextInscription协议合约内部代币转出触发的event   
-5、**proxyDeposit**：用于NextInscription协议合约内部余额转质押触发的event    
+4、**deposit**：用于转移NextInscription协议代币  
+5、**NextInscriptionDeposit**：用于NextInscription质押触发的event  
+6、**NextInscriptionContractTransfer**：用于NextInscription协议合约内部代币转出触发的event   
+7、**NextInscriptionProxyDeposit**：用于NextInscription协议合约内部余额转质押触发的event    
 ### Deploy
 ```cpp
 data:,{"a":"NextInscription","p":"oprc-20","op":"deploy","tick":"NI","max":"210000000000","lim":"10000"}
@@ -44,7 +45,7 @@ data:,{"a":"NextInscription","p":"oprc-20","op":"mint","tick":"NI","amt":"10000"
 | tick | yes | 代币名称      |
 | amt  | yes | mint数量  |
 
-### transfer
+### Transfer
 ```cpp
 data:,{"a":"NextInscription","p":"oprc-20","op":"transfer","tick":"NI","amt":"10000"}
 ```
@@ -55,26 +56,38 @@ data:,{"a":"NextInscription","p":"oprc-20","op":"transfer","tick":"NI","amt":"10
 | op | yes | 操作类型transfer  |
 | tick | yes | 代币名称      |
 | amt  | yes | transfer数量  |
-### deposit
+### Deposit
 ```cpp
-event deposit(
+data:,{"a":"NextInscription","p":"oprc-20","op":"deposit","tick":"NI","amt":"10000"}
+```
+| Key | Required? | Desc |
+| :-----| :----  | ----: |
+| a | yes | NextInscription |
+| p | yes | 代币协议          |
+| op | yes | 操作类型deposit  |
+| tick | yes | 代币名称      |
+| amt  | yes | transfer数量  |
+### NextInscriptionDeposit
+```cpp
+event NextInscriptionDeposit(
+    bytes32 indexed orderHash,
     bytes32 indexed collectionId,
     uint256 indexed amount 
 );
 //用于质押铭文代币给合约。
 ```
-### contractTransfer
+### NextInscriptionContractTransfer
 ```cpp
-event contractTransfer(
+event NextInscriptionContractTransfer(
     bytes32 indexed collectionId,
     address indexed receive,
     uint256 indexed amount 
 );
 //合约内部代币转移，用于合约转账。
 ```
-### proxyDeposit
+### NextInscriptionProxyDeposit
 ```cpp
-event contractTransfer(
+event NextInscriptionProxyDeposit(
     bytes32 indexed collectionId,
     address indexed from,
     address indexed to,
