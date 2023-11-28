@@ -16,8 +16,8 @@
 1、**deploy**：用于部署NextInscription协议代币  
 2、**mint**：用于铸造NextInscription协议代币  
 3、**transfer**：用于转移NextInscription协议代币  
-4、**deposit**：用于转移NextInscription协议代币  
-5、**NextInscriptionDeposit**：用于NextInscription质押触发的event  
+4、**deposit**：用于质押NextInscription协议代币  
+5、**NextInscriptionDeposit**：用于NextInscription确认质押触发的event  
 6、**NextInscriptionContractTransfer**：用于NextInscription协议合约内部代币转出触发的event   
 7、**NextInscriptionProxyDeposit**：用于NextInscription协议合约内部余额转质押触发的event    
 ### Deploy
