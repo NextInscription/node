@@ -66,7 +66,7 @@ data:,{"a":"NextInscription","p":"oprc-20","op":"deposit","tick":"NI","amt":"100
 | p | yes | 代币协议          |
 | op | yes | 操作类型deposit  |
 | tick | yes | 代币名称      |
-| amt  | yes | transfer数量  |
+| amt  | yes | deposit数量  |
 ### NextInscriptionDeposit
 ```cpp
 event NextInscriptionDeposit(
