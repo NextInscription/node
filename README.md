@@ -58,7 +58,7 @@ data:,{"a":"NextInscription","p":"oprc-20","op":"transfer","tick":"NI","amt":"10
 | amt  | yes | transfer数量  |
 ### Deposit
 ```cpp
-data:,{"a":"NextInscription","p":"oprc-20","op":"deposit","tick":"NI","amt":"10000"}
+data:,{"a":"NextInscription","p":"oprc-20","op":"deposit","tick":"NI","amt":"10000","to":"0x"}
 ```
 | Key | Required? | Desc |
 | :-----| :----  | ----: |
@@ -67,6 +67,7 @@ data:,{"a":"NextInscription","p":"oprc-20","op":"deposit","tick":"NI","amt":"100
 | op | yes | 操作类型deposit  |
 | tick | yes | 代币名称      |
 | amt  | yes | deposit数量  |
+| to  | yes | deposit对方地址  |
 ### NextInscriptionDeposit
 ```cpp
 event NextInscriptionDeposit(
