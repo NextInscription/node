@@ -19,7 +19,6 @@
 4、**deposit**：用于质押NextInscription协议代币  
 5、**NextInscriptionDeposit**：用于NextInscription确认质押触发的event  
 6、**NextInscriptionContractTransfer**：用于NextInscription协议合约内部代币转出触发的event   
-7、**NextInscriptionProxyDeposit**：用于NextInscription协议合约内部余额转质押触发的event    
 ### Deploy
 ```cpp
 data:,{"a":"NextInscription","p":"oprc-20","op":"deploy","tick":"NI","max":"210000000000","lim":"10000"}
@@ -85,14 +84,4 @@ event NextInscriptionContractTransfer(
     uint256 indexed amount 
 );
 //合约内部代币转移，用于合约转账。
-```
-### NextInscriptionProxyDeposit
-```cpp
-event NextInscriptionProxyDeposit(
-    bytes32 indexed collectionId,
-    address indexed from,
-    address indexed to,
-    uint256 amount 
-);
-//合约内部代币转质押。
 ```
