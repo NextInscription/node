@@ -1,72 +1,105 @@
-# 文档
+# Document
+### Run NextInscription node
+npm install   
+npm run sync
+### Api
+```cpp
+http://127.0.0.1:7777/api/getCollection
+```
+| Key          | Required? |
+| :----------- | :-------- |
+| collectionId | yes       |
 
-### 概念
+```cpp
+http://127.0.0.1:7777/api/getAmount
+```
+| Key          | Required? |
+| :----------- | :-------- |
+| address      | yes       |
+| collectionId | yes       |
+
+```cpp
+http://127.0.0.1:7777/api/getHolders
+```
+| Key          | Required? |
+| :----------- | :-------- |
+| collectionId | yes       |
+
+```cpp
+http://127.0.0.1:7777/api/getBlock
+```
+| Key         | Required? |
+| :---------- | :-------- |
+| chainId     | yes       |
+| blockNumber | yes       |
+
+### Concepts
 
 
-1、**公平分配**：是一种公平发射的铭文代币协议，每个人都可以公平参与。  
-2、**余额记账**：通过余额记账的方式让转移更加灵活方便，节省gas。   
-3、**公开透明**：在市场发布之后，我们会公开我们节点的同步方式，通过npm包的形式让大家可以监督记账的公平性。  
-4、**节点共识**：在市场稳定之后，我们会采取共识节点的方式来验证所有节点的数据安全，以及数据准确性。 
+1、**Fair Distribution**:A tokenized protocol for fair launch of inscriptions, allowing everyone to participate fairly. 
+2、**Balance Accounting**:Flexibility and gas savings in transfers through balance accounting.  
+3、**Node Consensus**:After deployment, our node synchronization methods will be publicly disclosed via npm packages, enabling oversight of the fairness of accounting.  
+4、**Node Consensus**:Once the market stabilizes, consensus nodes will be employed to verify the security and accuracy of all node data. 
 
-### 约定
-1、mint代币只能from=to  
-2、不支持合约批量铸造  
-3、将不再记录mint hash  
-### 规范
-1、**deploy**：用于部署NextInscription协议代币  
-2、**mint**：用于铸造NextInscription协议代币  
-3、**transfer**：用于转移NextInscription协议代币  
-4、**deposit**：用于质押NextInscription协议代币  
-5、**NextInscriptionDeposit**：用于NextInscription确认质押触发的event  
-6、**NextInscriptionContractTransfer**：用于NextInscription协议合约内部代币转出触发的event   
+### Agreements
+1、Mint tokens only with from=to. 
+2、Do not support batch minting through contracts. 
+3、Mint hashes will no longer be recorded.  
+### Specifications
+1、**deploy**:Used to deploy the NextInscription protocol for token issuance. 
+2、**mint**:Used to mint tokens according to the NextInscription protocol. 
+3、**transfer**:Used for transferring tokens under the NextInscription protocol. 
+4、**deposit**:Used for staking tokens under the NextInscription protocol. 
+5、**NextInscriptionDeposit**:Event triggered when a deposit is confirmed under the NextInscription protocol.  
+6、**NextInscriptionContractTransfer**: Event triggered when a token transfer within the NextInscription protocol contract occurs.  
 ### Deploy
 ```cpp
 data:,{"a":"NextInscription","p":"oprc-20","op":"deploy","tick":"NI","max":"210000000000","lim":"10000"}
 ```
-| Key | Required? | Desc |
-| :-----| :----  | ----: |
-| a | yes | NextInscription |
-| p | yes | 代币协议          |
-| op | yes | 操作类型deploy   |
-| tick | yes | 代币名称       |
-| max  | yes | 代币总量，必须是lim的倍数       |
-| lim  | yes | mint代币数量限制       |
+| Key  | Required? |                                                         Desc |
+| :--- | :-------- | -----------------------------------------------------------: |
+| a    | yes       |                                              NextInscription |
+| p    | yes       |                                 Token protocol max length 10 |
+| op   | yes       |                                       Operation type: deploy |
+| tick | yes       |                                     Token name max length 18 |
+| max  | yes       | Total token supply (must be a multiple of lim) max length 18 |
+| lim  | yes       |                          Mint token quantity limit max%lim=0 |
 
 ### Mint
 ```cpp
 data:,{"a":"NextInscription","p":"oprc-20","op":"mint","tick":"NI","amt":"10000"}
 ```
-| Key | Required? | Desc |
-| :-----| :----  | ----: |
-| a | yes | NextInscription |
-| p | yes | 代币协议          |
-| op | yes | 操作类型mint  |
-| tick | yes | 代币名称      |
-| amt  | yes | mint数量  |
+| Key  | Required? |                 Desc |
+| :--- | :-------- | -------------------: |
+| a    | yes       |      NextInscription |
+| p    | yes       |       Token protocol |
+| op   | yes       | Operation type: mint |
+| tick | yes       |           Token name |
+| amt  | yes       |             Mint lim |
 
 ### Transfer
 ```cpp
 data:,{"a":"NextInscription","p":"oprc-20","op":"transfer","tick":"NI","amt":"10000"}
 ```
-| Key | Required? | Desc |
-| :-----| :----  | ----: |
-| a | yes | NextInscription |
-| p | yes | 代币协议          |
-| op | yes | 操作类型transfer  |
-| tick | yes | 代币名称      |
-| amt  | yes | transfer数量  |
+| Key  | Required? |                     Desc |
+| :--- | :-------- | -----------------------: |
+| a    | yes       |          NextInscription |
+| p    | yes       |           Token protocol |
+| op   | yes       | Operation type: transfer |
+| tick | yes       |               Token name |
+| amt  | yes       |          Transfer amount |
 ### Deposit
 ```cpp
 data:,{"a":"NextInscription","p":"oprc-20","op":"deposit","tick":"NI","amt":"10000","to":"0x"}
 ```
-| Key | Required? | Desc |
-| :-----| :----  | ----: |
-| a | yes | NextInscription |
-| p | yes | 代币协议          |
-| op | yes | 操作类型deposit  |
-| tick | yes | 代币名称      |
-| amt  | yes | deposit数量  |
-| to  | yes | deposit对方地址  |
+| Key  | Required? |                              Desc |
+| :--- | :-------- | --------------------------------: |
+| a    | yes       |                   NextInscription |
+| p    | yes       |                    Token protocol |
+| op   | yes       |           Operation type: deposit |
+| tick | yes       |                        Token name |
+| amt  | yes       |                    Deposit amount |
+| to   | yes       | Recipient address for the deposit |
 ### NextInscriptionDeposit
 ```cpp
 event NextInscriptionDeposit(
@@ -74,7 +107,7 @@ event NextInscriptionDeposit(
     bytes32 indexed collectionId,
     uint256 indexed amount 
 );
-//用于质押铭文代币给合约。
+//Used to pledge inscription tokens for successful callback of contracts
 ```
 ### NextInscriptionContractTransfer
 ```cpp
@@ -83,5 +116,5 @@ event NextInscriptionContractTransfer(
     address indexed receive,
     uint256 indexed amount 
 );
-//合约内部代币转移，用于合约转账。
+//Internal token transfer within the contract, used for contract transfers
 ```

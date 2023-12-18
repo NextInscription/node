@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "module": "commonjs", // 编译生成的模块系统代码
+    "target": "ESNext", // 指定ecmascript的目标版本
+    "noImplicitAny": false, // 禁止隐式any类型
+    "outDir": "./build",
+    "sourceMap": false,
+    "allowJs": true, // 是否允许出现js
+    "newLine": "LF",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "useDefineForClassFields": true,
+  },
+  "include": [
+    "src/**/*"
+  ],
+}
