@@ -36,22 +36,22 @@ http://127.0.0.1:7777/api/getBlock
 ### Concepts
 
 
-1、**Fair Distribution**:A tokenized protocol for fair launch of inscriptions, allowing everyone to participate fairly. 
-2、**Balance Accounting**:Flexibility and gas savings in transfers through balance accounting.  
-3、**Node Consensus**:After deployment, our node synchronization methods will be publicly disclosed via npm packages, enabling oversight of the fairness of accounting.  
+1、**Fair Distribution**:A tokenized protocol for fair launch of inscriptions, allowing everyone to participate fairly.   
+2、**Balance Accounting**:Flexibility and gas savings in transfers through balance accounting.    
+3、**Node Consensus**:After deployment, our node synchronization methods will be publicly disclosed via npm packages, enabling oversight of the fairness of accounting.    
 4、**Node Consensus**:Once the market stabilizes, consensus nodes will be employed to verify the security and accuracy of all node data. 
 
 ### Agreements
-1、Mint tokens only with from=to. 
-2、Do not support batch minting through contracts. 
-3、Mint hashes will no longer be recorded.  
+1、Mint tokens only with from=to.   
+2、Do not support batch minting through contracts.   
+3、Mint hashes will no longer be recorded.   
 ### Specifications
-1、**deploy**:Used to deploy the NextInscription protocol for token issuance. 
-2、**mint**:Used to mint tokens according to the NextInscription protocol. 
-3、**transfer**:Used for transferring tokens under the NextInscription protocol. 
-4、**deposit**:Used for staking tokens under the NextInscription protocol. 
-5、**NextInscriptionDeposit**:Event triggered when a deposit is confirmed under the NextInscription protocol.  
-6、**NextInscriptionContractTransfer**: Event triggered when a token transfer within the NextInscription protocol contract occurs.  
+1、**deploy**:Used to deploy the NextInscription protocol for token issuance.   
+2、**mint**:Used to mint tokens according to the NextInscription protocol.   
+3、**transfer**:Used for transferring tokens under the NextInscription protocol.   
+4、**deposit**:Used for staking tokens under the NextInscription protocol.   
+5、**NextInscriptionDeposit**:Event triggered when a deposit is confirmed under the NextInscription protocol.   
+6、**NextInscriptionContractTransfer**: Event triggered when a token transfer within the NextInscription protocol contract occurs.   
 ### Deploy
 ```cpp
 data:,{"a":"NextInscription","p":"oprc-20","op":"deploy","tick":"NI","max":"210000000000","lim":"10000"}
