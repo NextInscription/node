@@ -49,7 +49,8 @@ http://127.0.0.1:7777/api/getBlock
 1、**deploy**:Used to deploy the NextInscription protocol for token issuance.   
 2、**mint**:Used to mint tokens according to the NextInscription protocol.   
 3、**transfer**:Used for transferring tokens under the NextInscription protocol.   
-4、**deposit**:Used for staking tokens under the NextInscription protocol.   
+4、**deposit**:Used for staking tokens under the NextInscription protocol.  
+4、**Xtransfer**:Used for cross tokens under the NextInscription protocol.    
 5、**NextInscriptionDeposit**:Event triggered when a deposit is confirmed under the NextInscription protocol.   
 6、**NextInscriptionContractTransfer**: Event triggered when a token transfer within the NextInscription protocol contract occurs.   
 ### Deploy
