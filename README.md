@@ -59,7 +59,7 @@ data:,{"a":"NextInscription","p":"oprc-20","op":"deploy","tick":"NI","max":"2100
 | Key  | Required? |                                                         Desc |
 | :--- | :-------- | -----------------------------------------------------------: |
 | a    | yes       |                                              NextInscription |
-| p    | yes       |                                 Token protocol max length 10 |
+| p    | yes       |                            Token protocol max length 10,*-20 |
 | op   | yes       |                                       Operation type: deploy |
 | tick | yes       |                                     Token name max length 18 |
 | max  | yes       | Total token supply (must be a multiple of lim) max length 18 |
@@ -88,6 +88,7 @@ data:,{"a":"NextInscription","p":"oprc-20","op":"transfer","tick":"NI","amt":"10
 | op   | yes       | Operation type: transfer |
 | tick | yes       |               Token name |
 | amt  | yes       |          Transfer amount |
+| gen  | no        |        Original chain ID |
 ### Deposit
 ```cpp
 data:,{"a":"NextInscription","p":"oprc-20","op":"deposit","tick":"NI","amt":"10000","to":"0x"}
@@ -100,6 +101,21 @@ data:,{"a":"NextInscription","p":"oprc-20","op":"deposit","tick":"NI","amt":"100
 | tick | yes       |                        Token name |
 | amt  | yes       |                    Deposit amount |
 | to   | yes       | Recipient address for the deposit |
+| gen  | no        |                 Original chain ID |
+### Xtransfer
+```cpp
+data:,{"a":"NextInscription","p":"oprc-20","op":"Xtransfer","tick":"NI","amt":"10000","gen":"137","x":"56"}
+```
+| Key  | Required? |                              Desc |
+| :--- | :-------- | --------------------------------: |
+| a    | yes       |                   NextInscription |
+| p    | yes       |                    Token protocol |
+| op   | yes       |         Operation type: Xtransfer |
+| tick | yes       |                        Token name |
+| amt  | yes       |                    Deposit amount |
+| to   | yes       | Recipient address for the deposit |
+| gen  | yes       |                 Original chain ID |
+| x    | yes       |                    Cross chain ID |
 ### NextInscriptionDeposit
 ```cpp
 event NextInscriptionDeposit(
