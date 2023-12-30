@@ -88,7 +88,7 @@ data:,{"a":"NextInscription","p":"oprc-20","op":"transfer","tick":"NI","amt":"10
 | op   | yes       | Operation type: transfer |
 | tick | yes       |               Token name |
 | amt  | yes       |          Transfer amount |
-| gen  | no        |        Original chain ID |
+| gen  | no        |        Genesis chain ID |
 ### Deposit
 ```cpp
 data:,{"a":"NextInscription","p":"oprc-20","op":"deposit","tick":"NI","amt":"10000","to":"0x"}
@@ -101,7 +101,7 @@ data:,{"a":"NextInscription","p":"oprc-20","op":"deposit","tick":"NI","amt":"100
 | tick | yes       |                        Token name |
 | amt  | yes       |                    Deposit amount |
 | to   | yes       | Recipient address for the deposit |
-| gen  | no        |                 Original chain ID |
+| gen  | no        |                 Genesis chain ID |
 ### Xtransfer
 ```cpp
 data:,{"a":"NextInscription","p":"oprc-20","op":"Xtransfer","tick":"NI","amt":"10000","gen":"137","x":"56"}
@@ -114,7 +114,7 @@ data:,{"a":"NextInscription","p":"oprc-20","op":"Xtransfer","tick":"NI","amt":"1
 | tick | yes       |                        Token name |
 | amt  | yes       |                    Deposit amount |
 | to   | yes       | Recipient address for the deposit |
-| gen  | yes       |                 Original chain ID |
+| gen  | yes       |                 Genesis chain ID |
 | x    | yes       |                    Cross chain ID |
 ### NextInscriptionDeposit
 ```cpp
